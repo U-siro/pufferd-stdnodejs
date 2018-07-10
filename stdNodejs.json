@@ -1,0 +1,41 @@
+{
+  "pufferd": {
+    "type": "node",
+    "display": "Standard Node.js Application",
+    "install": {
+      "commands": [
+        {
+          "commands": [
+            "sh -c /var/scripts/install.sh"
+          ],
+          "type": "command"
+        }
+      ]
+    },
+    "run": {
+      "stop": "^C",
+      "pre": [],
+      "post": [],
+      "arguments": [
+        "-c", 
+        "/var/scripts/start.sh"
+      ],
+      "program": "sh",
+      "environmentVars": {
+          "PORT": "${port}"
+        }
+    },
+    "environment": {
+      "type": "standard"
+    },
+    "data": {
+      "port": {
+        "value": "25565",
+        "required": true,
+        "desc": "What port to bind the server to(Effective only with process.env.PORT)",
+        "display": "Port",
+        "internal": false
+      }
+    }
+  }
+}
